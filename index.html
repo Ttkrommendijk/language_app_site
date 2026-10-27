@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#21634e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Frase por frase">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="icon" href="./favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" href="./favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="./site.webmanifest">
+
+  <title>Frase por frase — Aprenda idiomas</title>
+  <script type="module" crossorigin src="./assets/index-DNV0kVFA.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/local-client-C1DgSO4A.js">
+  <link rel="stylesheet" crossorigin href="./assets/index-BY4JsH-3.css">
+</head>
+<body>
+  <header><a class="brand" href="./"><img class="brand-icon" src="./app-icon-192.png" width="36" height="36" alt="">frase<span>por</span>frase<span class="brand-dot">.</span></a><button id="open-library" class="secondary" aria-haspopup="dialog" aria-controls="my-library">Biblioteca</button></header>
+  <main>
+    <nav class="app-menu" aria-label="Atividades"><button id="words-nav" aria-pressed="true">Palavras</button><button id="sentences-nav" aria-pressed="false">Frases</button></nav>
+    <div id="sentence-app" hidden>
+    <div class="tabs" role="tablist" aria-label="Etapas">
+      <button id="setup-tab" role="tab" aria-selected="true" aria-controls="setup-panel">1 · Preparar</button>
+      <button id="exercise-tab" role="tab" aria-selected="false" aria-controls="exercise-panel" tabindex="-1" disabled>2 · Praticar</button>
+    </div>
+    <div id="setup-panel" role="tabpanel" aria-labelledby="setup-tab">
+    <section class="intro">
+      <p class="eyebrow">UM POUCO DE PRÁTICA. TODOS OS DIAS.</p>
+      <h1>Suas palavras.<br>Na <em>ordem certa.</em></h1>
+      <p>Leia em português. Monte a frase em neerlandês.<br class="desktop"> Aprenda como o idioma funciona, passo a passo.</p>
+    </section>
+    <section class="card setup" aria-labelledby="setup-title">
+      <div class="section-heading"><span class="step">01</span><h2 id="setup-title">Sobre o que você quer falar?</h2></div>
+      <form id="generate">
+        <label for="topic">Tema ou instrução</label>
+        <textarea id="topic" rows="2" maxlength="500" required placeholder="Por exemplo: fazer compras no supermercado">Fazer compras no supermercado</textarea>
+        <div class="suggestions" aria-label="Sugestões de temas">
+          <button type="button" data-topic="Fazer compras no supermercado">🛒 Compras</button>
+          <button type="button" data-topic="Conversar com colegas no trabalho">☕ No trabalho</button>
+          <button type="button" data-topic="Viajar de trem">🚆 Viagens</button>
+        </div>
+        <div class="form-row">
+          <label>Nível<select id="level"><option value="A1">A1 · Iniciante</option><option value="A2" selected>A2 · Básico</option><option value="B1">B1 · Intermediário</option></select></label>
+          <label>Número de frases<select id="count"><option>5</option><option selected>10</option><option>15</option></select></label>
+        </div>
+        <p class="small">Frases salvas neste dispositivo. Importe suas próprias frases abaixo.</p>
+        <button class="primary" id="generate-button" disabled>Criar meus exercícios <span>↗</span></button>
+        <p id="generation-status" class="small" role="status"></p>
+      </form>
+      <div class="demo-divider"><span>Quer experimentar?</span><button id="demo" class="text-button">Praticar 5 frases de exemplo →</button></div>
+    </section>
+    </div>
+    <div id="exercise-panel" role="tabpanel" aria-labelledby="exercise-tab" hidden>
+    <section id="practice" class="card practice" hidden aria-labelledby="practice-title">
+      <div class="section-heading"><span class="step">02</span><h2 id="practice-title">Monte a frase em neerlandês</h2></div>
+      <div class="progress-meta"><span id="lesson-label">Exercício de exemplo</span><span id="progress-label"></span></div>
+      <progress id="progress" value="0" max="5" aria-label="Progresso"></progress>
+      <div class="source"><span class="eyebrow">PORTUGUÊS</span><p id="portuguese" lang="pt-BR"></p></div>
+      <div class="answer-heading"><label id="answer-label">Sua tradução</label><button class="text-button" id="clear">Recomeçar</button></div>
+      <div id="answer" class="word-area answer" role="group" aria-labelledby="answer-label" lang="nl"></div>
+      <div id="bank" class="word-area bank" role="group" aria-label="Palavras disponíveis" lang="nl"></div>
+      <div class="exercise-actions"><button id="hint" class="secondary">Dar uma dica</button><button id="check" class="primary">Conferir <span>✓</span></button><button id="next" class="primary" hidden>Próxima frase <span>→</span></button></div>
+      <div id="feedback" role="status" class="feedback" hidden></div>
+      <button id="sentence-skip" class="secondary">Pular</button>
+      <button class="text-button reveal" id="reveal">Mostrar a resposta</button>
+    </section>
+    <section class="card completion" id="completion" hidden>
+      <span class="finish-icon">✓</span><p class="eyebrow">MUITO BEM</p><h2>Mais um passo à frente.</h2><p id="score"></p><button id="again" class="primary">Praticar estas frases novamente ↻</button><button id="new" class="text-button">Escolher outro tema →</button>
+    </section>
+    </div>
+    <details class="import-panel"><summary>Usar suas próprias frases do ChatGPT</summary><p class="small">Copie a instrução para o ChatGPT e cole a resposta em JSON abaixo. Também funciona sem conexão direta.</p><button class="secondary" id="copy-prompt">Copiar instrução</button> <a href="https://chatgpt.com/" target="_blank" rel="noopener">Abrir ChatGPT ↗</a><label for="import">JSON com suas frases</label><textarea id="import" rows="5" placeholder='{"sentences":[{"pt":"Eu compro pão.","nl":"Ik koop brood.","explanation":"O verbo ocupa a segunda posição."}]}'></textarea><button class="secondary" id="import-button">Praticar estas frases</button><p id="import-status" class="small" role="status"></p></details>
+    </div>
+    <section id="vocabulary-app">
+      <div id="vocab-library" class="card">
+        <h1>Suas palavras</h1><p class="small">Sua biblioteca e seu progresso ficam somente neste dispositivo.</p>
+        <div class="vocab-top"><label>Idioma para praticar<select id="word-language"><option value="nl">Neerlandês</option><option value="fr">Francês</option><option value="en">Inglês</option></select></label><button id="start-words" class="primary">Praticar →</button></div>
+        <div class="library-filters">
+          <label>O que praticar<select id="practice-mode"><option value="words">Palavras</option><option value="verbs">Verbos e tempos</option></select></label>
+          <label>Nível<select id="filter-level"><option value="">Todos os níveis</option></select></label>
+          <label id="level-scope-label">Praticar níveis<select id="filter-levelScope"><option value="exact">Somente este nível</option><option value="through">Este nível e os anteriores</option></select></label>
+          <label>Categoria<select id="filter-category"><option value="">Todas as categorias</option></select></label>
+          <label>Capítulo<select id="filter-chapter"><option value="">Todos os capítulos</option></select></label>
+        </div>
+        <div id="verb-filters" class="library-filters" hidden>
+          <label>Verbo<select id="filter-verb"><option value="">Todos os verbos</option></select></label>
+          <label>Tempo<select id="filter-tense"><option value="">Todos os tempos</option></select></label>
+          <label>Pessoa<select id="filter-person"><option value="">Todas as pessoas</option></select></label>
+        </div>
+        <p id="library-count" class="small" aria-live="polite"></p>
+        <form id="word-form"><label for="word-search">Buscar palavra</label><input id="word-search" type="search" maxlength="100" required placeholder="Busque nas traduções"><button id="translate-word" class="primary" hidden disabled>Traduzir e salvar</button></form>
+        <p id="words-status" class="small" role="status"></p>
+        <details class="library-sources"><summary>Sobre a biblioteca</summary><p>Exemplos iniciais pequenos, não um curso completo. Níveis são estimativas. Importe seu próprio material em Configurações. Nenhuma coleção NT2Lex foi incluída.</p></details>
+        <div id="word-library-list">
+        <div class="vocab-tools"><label><input id="show-hidden" type="checkbox"> Mostrar minhas palavras ocultas</label></div>
+        <p class="small">Menos pontos primeiro. Cada erro: −1. Mostrar a resposta: −1 uma vez. Acerto na primeira tentativa sem ajuda: +1; após ajuda ou erro: 0. Palavras vistas ficam em pausa por 10 minutos. Empates são sorteados, favorecendo as vistas há mais tempo.</p>
+        <div id="word-list"></div><p id="word-empty" class="small" hidden>Nenhuma palavra encontrada.</p>
+        <nav class="word-pagination" aria-label="Páginas de palavras"><button id="words-prev" class="secondary">Anterior</button><span id="words-page" aria-live="polite"></span><button id="words-next" class="secondary">Próxima</button></nav>
+        </div>
+      </div>
+      <section id="voice-practice" class="card" hidden>
+        <button id="back-words" class="text-button">← Voltar às palavras</button>
+        <div id="selection-coverage" hidden><p id="selection-coverage-label" class="small" role="status"></p><progress id="selection-coverage-progress" max="1" value="0" aria-label="Itens vistos nesta seleção"></progress></div>
+        <div id="voice-exercise"><div class="progress-meta"><span id="voice-instruction">Fale a tradução</span><span id="voice-counter"></span></div><progress id="voice-progress" max="10" value="0" aria-label="Progresso"></progress>
+          <div id="voice-card" class="voice-card"><span class="eyebrow">PORTUGUÊS</span><h2 id="voice-word"></h2><p id="voice-context" class="small"></p><p id="voice-answer" hidden></p><p id="voice-counts"></p><button id="voice-reveal" class="card-reveal" aria-label="Mostrar tradução"></button><button id="voice-hear" class="card-hear" aria-label="Ouvir pronúncia" title="Ouvir pronúncia" hidden>👂</button></div>
+          <button id="voice-retry-card" class="secondary" hidden>Tentar carregar novamente</button>
+          <details id="voice-typing"><summary>Digitar resposta</summary><form id="voice-form"><label for="voice-input">Sua tradução, incluindo o artigo</label><input id="voice-input" maxlength="200" autocomplete="off" autocapitalize="none" spellcheck="false"><button id="voice-check" class="primary">Conferir</button></form></details>
+          <div class="voice-actions"><button id="voice-speak" class="primary"><span id="voice-speak-label">🎙 Falar</span><span id="voice-meter" class="voice-meter" aria-hidden="true" hidden></span></button></div>
+          <p id="voice-status" role="status" tabindex="0"></p>
+          <div class="review-actions"><button id="voice-know" class="secondary" title="Revisar daqui a alguns dias" hidden>Já sei</button><button id="voice-skip" class="primary">Pular</button></div>
+          <button id="voice-hide" class="text-button">Não quero mais esta palavra</button>
+          <label for="voice-noise">Filtro de ruído</label>
+          <select id="voice-noise"><option value="-45">Leve</option><option value="-35">Médio</option><option value="-25">Forte — fale perto do microfone</option><option value="off">Desligado</option></select>
+          <small>Se a TV for reconhecida, aumente o filtro. Se sua voz for ignorada, diminua.</small>
+          <button id="voice-retry-save" class="secondary" hidden>Tentar salvar resposta novamente</button>
+
+          <details id="voice-diagnostic" hidden><summary>Diagnóstico de voz</summary><p id="voice-error" class="small"></p></details>
+        </div>
+        <div id="voice-finish" hidden><h2>Muito bem!</h2><p id="round-summary"></p><button id="finish-words" class="primary">Voltar à lista</button></div>
+      </section>
+    </section>
+    <div id="story-setup" hidden>
+      <form id="story-form">
+        <label for="story-topic">Tema ou categoria</label>
+        <textarea id="story-topic" rows="2" maxlength="500" required placeholder="Por exemplo: uma viagem de trem, animais ou um dia na escola">Uma viagem de trem</textarea>
+        <label for="story-count">Número de perguntas</label>
+        <input id="story-count" type="number" min="1" max="10" value="5" required>
+      </form>
+    </div>
+    <div id="story-methods" class="method-grid" hidden>
+      <button type="button" data-story-mode="read" aria-pressed="true">📖 Ler</button>
+      <button type="button" data-story-mode="listen" aria-pressed="false">🎧 Ouvir</button>
+    </div>
+    <div id="story-actions" hidden><button id="story-generate" form="story-form" class="primary">Praticar história local →</button><p id="story-generation-status" class="small" role="status"></p></div>
+    <section id="story-practice" class="card" hidden aria-labelledby="story-title">
+      <button id="story-back" class="text-button">← Voltar à preparação</button>
+      <p id="story-meta" class="eyebrow"></p><h1 id="story-title"></h1>
+      <div class="story-audio"><button id="story-play" class="secondary">Ouvir história</button><button id="story-stop" class="secondary" disabled>Parar</button></div>
+      <p id="story-audio-status" class="small" role="status"></p>
+      <details id="story-reading"><summary>Mostrar / ocultar texto</summary><div id="story-text"></div></details>
+      <div id="story-question-panel"><p id="story-progress" class="small"></p><h2 id="story-question" tabindex="-1"></h2><div id="story-options" class="answer-options"></div><p id="story-feedback" role="status"></p><button id="story-next" class="secondary">Pular</button></div>
+      <div id="story-summary" hidden><h2>História concluída</h2><p id="story-score"></p><button id="story-finish" class="primary">Escolher outro tema</button></div>
+    </section>
+    <footer>Português → Neerlandês · Francês · Inglês<p>SQLite local · Sem conta · Exporte backups em Configurações. Limpar os dados do site apaga seu progresso.</p></footer>
+  </main>
+
+  <dialog id="metadata-dialog" aria-labelledby="metadata-title"><form id="metadata-form"><h2 id="metadata-title">Editar organização</h2><p id="metadata-word"></p><fieldset><legend>Categorias</legend><div id="metadata-categories" class="metadata-categories"></div></fieldset><div id="metadata-levels" class="library-filters"></div><label>Capítulo<input id="metadata-chapter" maxlength="100" required></label><p class="small">As alterações ficam somente neste dispositivo.</p><p id="metadata-error" role="status"></p><button class="primary">Salvar</button><button id="metadata-cancel" class="secondary" type="button">Cancelar</button></form></dialog>
+  <dialog id="word-loading" aria-labelledby="word-loading-title"><div class="loading-spinner" aria-hidden="true"></div><h2 id="word-loading-title">Traduzindo sua palavra</h2><p class="small">Preparando português, neerlandês, francês e inglês com os artigos corretos…</p><button id="cancel-word" class="secondary">Cancelar</button></dialog>
+  <dialog id="generation-dialog" aria-labelledby="loading-title" aria-describedby="loading-description">
+    <div class="loading-spinner" aria-hidden="true"></div>
+    <h2 id="loading-title">Carregando seus exercícios</h2>
+    <p id="loading-description" role="status">Abrindo suas frases salvas neste dispositivo…</p>
+    <button type="button" id="cancel-generation" class="secondary" autofocus>Cancelar</button>
+  </dialog>
+  <dialog id="story-loading" aria-labelledby="story-loading-title"><div class="loading-spinner" aria-hidden="true"></div><h2 id="story-loading-title">Carregando sua história</h2><p class="small">Abrindo o texto e as perguntas locais…</p><button id="story-cancel" type="button" class="secondary">Cancelar</button></dialog>
+</body>
+</html>

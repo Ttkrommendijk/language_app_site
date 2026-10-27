@@ -1,0 +1,91 @@
+{
+  "sentences": [
+    {
+      "pt": "Eu compro pão na padaria.",
+      "nl": "Ik koop brood bij de bakker.",
+      "explanation": "Nesta oração principal, primeiro vem o sujeito (ik), depois o verbo (koop)."
+    },
+    {
+      "pt": "Hoje eu vou ao supermercado.",
+      "nl": "Vandaag ga ik naar de supermarkt.",
+      "explanation": "Vandaag vem no início. O verbo ga continua na segunda posição; o sujeito ik vem depois."
+    },
+    {
+      "pt": "Você quer uma sacola?",
+      "nl": "Wil je een tas?",
+      "explanation": "Em uma pergunta de sim ou não, o verbo (wil) vem antes do sujeito (je)."
+    },
+    {
+      "pt": "Eu quero comprar duas maçãs.",
+      "nl": "Ik wil twee appels kopen.",
+      "explanation": "Wil ocupa a segunda posição. O verbo no infinitivo, kopen, fica no final."
+    },
+    {
+      "pt": "Nós não compramos leite hoje.",
+      "nl": "Wij kopen vandaag geen melk.",
+      "explanation": "Geen nega o substantivo indefinido melk. Aqui, vandaag aparece depois do verbo."
+    }
+  ],
+  "translations": {
+    "fr": {
+      "language": "fr",
+      "sentences": [
+        {
+          "pt": "Eu compro pão na padaria.",
+          "fr": "J’achète du pain à la boulangerie.",
+          "explanation": "J’achète junta o sujeito je ao verbo antes de uma vogal. O lugar aparece no fim."
+        },
+        {
+          "pt": "Hoje eu vou ao supermercado.",
+          "fr": "Aujourd’hui je vais au supermarché.",
+          "explanation": "Aujourd’hui indica o tempo; je vem antes de vais."
+        },
+        {
+          "pt": "Você quer uma sacola?",
+          "fr": "Voulez-vous un sac ?",
+          "explanation": "A pergunta usa a inversão voulez-vous antes do complemento."
+        },
+        {
+          "pt": "Eu quero comprar duas maçãs.",
+          "fr": "Je veux acheter deux pommes.",
+          "explanation": "Je é o sujeito, veux é o verbo conjugado e acheter fica no infinitivo."
+        },
+        {
+          "pt": "Nós não compramos leite hoje.",
+          "fr": "Nous n’achetons pas de lait aujourd’hui.",
+          "explanation": "A negação envolve o verbo: n’achetons pas; depois vem de lait."
+        }
+      ]
+    },
+    "en": {
+      "language": "en",
+      "sentences": [
+        {
+          "pt": "Eu compro pão na padaria.",
+          "en": "I buy bread at the bakery.",
+          "explanation": "O sujeito I vem antes do verbo buy. O lugar aparece no fim."
+        },
+        {
+          "pt": "Hoje eu vou ao supermercado.",
+          "en": "Today I am going to the supermarket.",
+          "explanation": "Today indica o tempo; I vem antes de am going."
+        },
+        {
+          "pt": "Você quer uma sacola?",
+          "en": "Would you like a bag?",
+          "explanation": "A pergunta começa com would, seguida do sujeito you."
+        },
+        {
+          "pt": "Eu quero comprar duas maçãs.",
+          "en": "I want to buy two apples.",
+          "explanation": "I vem antes de want; to buy introduz a ação desejada."
+        },
+        {
+          "pt": "Nós não compramos leite hoje.",
+          "en": "We are not buying milk today.",
+          "explanation": "A negação not vem depois de are; buying expressa a ação."
+        }
+      ]
+    }
+  }
+}
