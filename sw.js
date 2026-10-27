@@ -1,7 +1,7 @@
 
 const PREFIX='language-app-static-'+self.registration.scope+'-';
-const CACHE=PREFIX+"e2ad5c63fa61e8a0";
-const FILES=["THIRD_PARTY_NOTICES.txt","app-icon-192.png","app-icon-512.png","apple-touch-icon.png","assets/ai-practice-jvYmR-08.js","assets/app-jQZ_CDyY.js","assets/index-CBIFNwqx.js","assets/index-O0HnfutZ.css","assets/local-client-C1DgSO4A.js","assets/sql-wasm-B-9ndiyM.wasm","assets/vocabulary-BpU7cNuU.js","content-guide.html","demo.json","favicon-32.png","favicon.ico","index.html","logo.png","release.json","site.webmanifest"];
+const CACHE=PREFIX+"5ac622e448720be7";
+const FILES=["THIRD_PARTY_NOTICES.txt","app-icon-192.png","app-icon-512.png","apple-touch-icon.png","assets/ai-practice-CXb_GqJP.js","assets/app-B17O4zpi.js","assets/index-DqzoLI7X.js","assets/index-O0HnfutZ.css","assets/local-client-C1DgSO4A.js","assets/sql-wasm-B-9ndiyM.wasm","assets/vocabulary-BaM2Vl3k.js","content-guide.html","demo.json","favicon-32.png","favicon.ico","index.html","logo.png","release.json","site.webmanifest"];
 const base=new URL('./',self.location.href);
 const urls=FILES.map(f=>new URL(f,base).href);
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(urls))));
