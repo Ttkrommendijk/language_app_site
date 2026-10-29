@@ -1,7 +1,7 @@
 
 const PREFIX='language-app-static-'+self.registration.scope+'-';
-const CACHE=PREFIX+"d8dd97483553a464";
-const FILES=["THIRD_PARTY_NOTICES.txt","app-icon-192.png","app-icon-512.png","apple-touch-icon.png","assets/ai-practice-CXb_GqJP.js","assets/app-B17O4zpi.js","assets/dm-sans-OkNhvBry.ttf","assets/index-BMar_OQz.js","assets/index-By2m5htt.css","assets/local-client-C1DgSO4A.js","assets/manrope-DIRNzeTG.ttf","assets/sql-wasm-B-9ndiyM.wasm","assets/vocabulary-BW05-NnO.js","content-guide.html","demo.json","favicon-32.png","favicon.ico","fonts/DM-Sans-OFL.txt","fonts/Manrope-OFL.txt","fonts/dm-sans.ttf","fonts/manrope.ttf","fonts/sources.json","index.html","logo.png","release.json","site.webmanifest"];
+const CACHE=PREFIX+"4e7843368a81d6b8";
+const FILES=["THIRD_PARTY_NOTICES.txt","app-icon-192.png","app-icon-512.png","apple-touch-icon.png","assets/ai-practice-19JccaZB.js","assets/app-BaqlflDX.js","assets/dm-sans-OkNhvBry.ttf","assets/grammar-chat-DHRTN7_v.js","assets/index-Dpv9Bz3f.css","assets/index-qIB2oR17.js","assets/learning-context-Bxh_xtid.js","assets/local-client-C1DgSO4A.js","assets/manrope-DIRNzeTG.ttf","assets/sql-wasm-B-9ndiyM.wasm","assets/vocabulary-CVbBEh_6.js","content-guide.html","demo.json","favicon-32.png","favicon.ico","fonts/DM-Sans-OFL.txt","fonts/Manrope-OFL.txt","fonts/dm-sans.ttf","fonts/manrope.ttf","fonts/sources.json","index.html","logo.png","release.json","site.webmanifest"];
 const base=new URL('./',self.location.href);
 const urls=FILES.map(f=>new URL(f,base).href);
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(urls))));
