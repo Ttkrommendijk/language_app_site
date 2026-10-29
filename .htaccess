@@ -1,0 +1,11 @@
+# Mutable entry points must not outlive a published app release in HTTP caches.
+<FilesMatch "^(index\.html|sw\.js|release\.json|site\.webmanifest)$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </IfModule>
+  <IfModule mod_expires.c>
+    ExpiresActive Off
+  </IfModule>
+</FilesMatch>
